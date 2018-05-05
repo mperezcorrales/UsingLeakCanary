@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
 
         //Uncomment to solve static activity leak
-        //activity = null;
+        activity = null;
 
         //Uncomment to solve listener leak
         //mPersonMovieDR.removeEventListener(movieValueEventListener);
