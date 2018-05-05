@@ -37,12 +37,12 @@ public class MainActivity extends AppCompatActivity {
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         //Uncomment to start listener leak
-        //startListeningFromFirebase();
+        startListeningFromFirebase();
 
     }
 
     private void startListeningFromFirebase() {
-        /*mDatabaseReference.child("person-movies").addValueEventListener(
+        mDatabaseReference.child("person-movies").addValueEventListener(
                 new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });*/
+        });
 
         //Uncomment to solve listener leak
         //mPersonMovieDR = mDatabaseReference.child("person-movies");
