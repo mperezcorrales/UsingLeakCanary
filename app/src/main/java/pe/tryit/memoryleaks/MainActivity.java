@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startListeningFromFirebase() {
-        mDatabaseReference.child("person-movies").addValueEventListener(
+        /*mDatabaseReference.child("person-movies").addValueEventListener(
                 new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
         //Uncomment to solve listener leak
-        //mPersonMovieDR = mDatabaseReference.child("person-movies");
-        //mPersonMovieDR.addValueEventListener(movieValueEventListener);
+        mPersonMovieDR = mDatabaseReference.child("person-movies");
+        mPersonMovieDR.addValueEventListener(movieValueEventListener);
     }
 
     private ValueEventListener movieValueEventListener = new ValueEventListener() {
@@ -81,6 +81,6 @@ public class MainActivity extends AppCompatActivity {
         activity = null;
 
         //Uncomment to solve listener leak
-        //mPersonMovieDR.removeEventListener(movieValueEventListener);
+        mPersonMovieDR.removeEventListener(movieValueEventListener);
     }
 }
